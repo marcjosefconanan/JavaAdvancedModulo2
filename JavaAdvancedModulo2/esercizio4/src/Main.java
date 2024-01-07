@@ -8,18 +8,20 @@ public class Main {
     public static void main(String[] args) {
 
         System.out.println("1) Mutable Map:");
+
         Map<String, String> superheroes = new HashMap<>();
         superheroes.put("Deadpool","Wade Wilson");
         superheroes.put("Batman","Bruce Wayne");
         superheroes.put("Superman","Clark Kent");
         superheroes.put("Spider-Man","Peter Benjamin Parker");
+
         System.out.println("Map<String, String> superheroes = new HashMap<>()");
         System.out.println("superheroes.put(\"Key\",\"Value\")");
         System.out.println(superheroes);
         System.out.println();
 
-
         System.out.println("2) Mutable Map, maximum 10 pairs");
+
         Map<String,String> superheores1 = new HashMap<>(Map.of(
                 "Deadpool","Wade Wilson",
                 "Batman","Bruce Wayne",
@@ -32,6 +34,7 @@ public class Main {
         System.out.println();
 
         System.out.println("3) Immutable Map, maximum 10 pairs");
+
         Map<String,String> superheroes2 = Map.of(
                 "Deadpool","Wade Wilson",
                 "Batman","Bruce Wayne",

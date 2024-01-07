@@ -2,68 +2,72 @@
 import java.util.*;
 public class Main {
     public static void main(String[] args) {
+        //creo un hashmap per i elementi che voglio
 
-        //Atomic weights [g/mol]
-        HashMap<String, Double> atomicWeights = new HashMap<>();
-        atomicWeights.put("Hydrogen", 1.00797);
-        atomicWeights.put("Helium", 4.00260);
-        atomicWeights.put("Lithium", 6.941);
-        atomicWeights.put("Beryllium", 9.01218);
-        atomicWeights.put("Boron", 10.81);
-        atomicWeights.put("Carbon", 12.011);
-        atomicWeights.put("Nitrogen", 14.0067);
-        atomicWeights.put("Oxygen", 15.9994);
+        //average Animal weights
+        HashMap<String, Double> animalWeights = new HashMap<>();
+        animalWeights.put("dog", 25.4);
+        animalWeights.put("cat", 15.5);
+        animalWeights.put("mouse", 100.5);
+        animalWeights.put("lion", 340.8);
+        animalWeights.put("whale", 12360.030);
+        animalWeights.put("zebra", 230.011);
+        animalWeights.put("salmon", 70.0067);
+        animalWeights.put("tuna", 90.9994);
 
         System.out.println("HashMap:");
-        for(Map.Entry<String,Double> element : atomicWeights.entrySet()) {
-            System.out.println(element.getKey() + " = " + element.getValue());
+        //faccio un for loop per stampare il hashmap
+        for(Map.Entry<String,Double> animal : animalWeights.entrySet()) {
+            System.out.println(animal.getKey() + " = " + animal.getValue() + "[KG]");
         }
         System.out.println();
 
-        ArrayList<Map.Entry<String,Double>> atomicWeightsList = new ArrayList<>(atomicWeights.entrySet());
+        ArrayList<Map.Entry<String,Double>> animalWeightsList = new ArrayList<>(animalWeights.entrySet());
 
-        atomicWeightsList.sort(Comparator.comparing(Map.Entry::getKey));
+        // questo compara i elemneti dentro l'hasmap e li mette in ordine alfabetico
+        animalWeightsList.sort(Comparator.comparing(Map.Entry::getKey));
         System.out.println("Alphabetical order ArrayList");
-        for(Map.Entry<String,Double> element : atomicWeightsList) {
-            System.out.println(element.getKey() + " = " + element.getValue());
+        for(Map.Entry<String,Double> animal : animalWeightsList) {
+            System.out.println(animal.getKey() + " = " + animal.getValue()+ "[KG]");
         }
 
 
         System.out.println();
-        atomicWeightsList.sort(Comparator.comparing(Map.Entry::getValue));
+        // questo compara i elementi e li mette in ordine di peso
+        animalWeightsList.sort(Comparator.comparing(Map.Entry::getValue));
         System.out.println("ArrayList ordered by weight");
-        for(Map.Entry<String,Double> element : atomicWeightsList) {
-            System.out.println(element.getKey() + " = " + element.getValue());
+        for(Map.Entry<String,Double> animal : animalWeightsList) {
+            System.out.println(animal.getKey() + " = " + animal.getValue()+ "[KG]");
         }
         //--------------------------------------------------
-        //LHV [MJ/kg]
+        // creato unaltro hasmap ma un likedhasMap che lika lashamap al'altro hasmap su.
         System.out.println("LinkedHashMap:");
-        LinkedHashMap<String, Double> lowerHeatingValues = new LinkedHashMap<String,Double>();
-        lowerHeatingValues.put("Hydrogen", 141.80);
-        lowerHeatingValues.put("Methane", 55.8);
-        lowerHeatingValues.put("Ethane", 51.9);
-        lowerHeatingValues.put("Propane", 50.35);
-        lowerHeatingValues.put("Butane", 49.5);
-        lowerHeatingValues.put("Pentane", 48.6);
-        lowerHeatingValues.put("Paraffin wax", 46.0);
-        lowerHeatingValues.put("Kerosene", 46.2);
-        lowerHeatingValues.put("Diesel", 44.8);
-        lowerHeatingValues.put("Coal (Anthracite)", 32.50);
-        lowerHeatingValues.put("Coal (Lignite)", 15.00);
+        LinkedHashMap<String, Double> animalslifespan = new LinkedHashMap<String,Double>();
+        animalslifespan.put("dog", 12.2);
+        animalslifespan.put("cat",15.3);
+        animalslifespan.put("whale", 78.5);
+        animalslifespan.put("chicken", 7.3);
+        animalslifespan.put("buffalo", 25.8);
+        animalslifespan.put("lion", 15.5);
+        animalslifespan.put("hippo", 46.7);
+        animalslifespan.put("eel", 15.3);
+        animalslifespan.put("zebra", 23.5);
+        animalslifespan.put("rabbit", 6.3);
+        animalslifespan.put("ant", 0.50);
 
         System.out.println();
-        System.out.println("Lower heating values of common fuels unordered");
-        for ( Map.Entry<String,Double> element : lowerHeatingValues.entrySet()) {
-            System.out.println(element.getKey() + " = " + element.getValue() + " [MJ/kg]");
+        // questo stampa lelenco dei animali e le loro lifespan in un ordine non ordinato.
+        System.out.println("Animals life span unordered");
+        for ( Map.Entry<String,Double> animal : animalslifespan.entrySet()) {
+            System.out.println(animal.getKey() + " = " + animal.getValue() + " [years]");
         }
 
-
-        System.out.println("Lower heating values of common fuels alphabetically oredered by a TreeMap");
-        TreeMap<String,Double> lowerHeatingValuesTree = new TreeMap<>(lowerHeatingValues);
+        //questo stampa l'elenco dei animali in ordine alfabetico.
+        System.out.println("Animals life span in alphabetically oredered by a TreeMap");
+        TreeMap<String,Double> animalslifespanTree = new TreeMap<>(animalslifespan);
         System.out.println();
-        for(Map.Entry<String,Double> element : lowerHeatingValuesTree.entrySet()) {
-            System.out.println(element.getKey() + " = " + element.getValue() + " [MJ/kg]");
+        for(Map.Entry<String,Double> animal : animalslifespanTree.entrySet()) {
+            System.out.println(animal.getKey() + " = " + animal.getValue() + " [years]");
         }
-
     }
 }
